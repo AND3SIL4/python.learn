@@ -1,4 +1,4 @@
-## Variables are written by snacke_case
+## Variables are written by snack_case
 def variables():
     variable = 1
     print(variable)
