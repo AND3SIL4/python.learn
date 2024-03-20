@@ -3,10 +3,11 @@ def exchangeable_value(budget, exchange_rate, spread, denomination):
     spread_decimal = spread / 100
 
     # Calculate the actual exchange rate including the spread
-    actual_exchange_rate = exchange_rate + (exchange_rate * spread_decimal)
+    actual_exchange_rate = round((exchange_rate * spread_decimal) + exchange_rate, 2)
 
     # Calculate the maximum value of the new currency
-    exchanged_value = budget / actual_exchange_rate
+    exchanged_value = budget * actual_exchange_rate
+    print(exchanged_value)
 
     # Since the currency denomination is a whole number, we need to divide the exchanged value by the denomination
     # and then take the floor (convert to int) to get the maximum number of whole denominations that can be bought
