@@ -96,4 +96,14 @@ class Employee(Person, Artist):
 
 
 felipe = Employee("Felipe", 21, "Colombian", 120000, "desarrollar")
-print(felipe.introduce_yourself())
+# print(felipe.introduce_yourself())
+
+## Saber si una clase hereda de otra usando (issubclass)
+herencia = issubclass(Employee, Artist)  ## True
+herencia2 = issubclass(Artist, Person)  ## False
+
+
+## Saber si un objeto y/o variable es una instancia de una clase usando (isinstance)
+instancia = isinstance(felipe, Person)  ## True
+instancia2 = isinstance(felipe, Artist)  ## True
+print(instancia2)
