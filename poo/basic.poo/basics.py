@@ -15,7 +15,3 @@ class Celular:
 celular1 = Celular("Samsung", "S230", "42MP")
 print(celular1.brand)
 print(celular1.cut_call())
-
-
-## Exercises ##
-

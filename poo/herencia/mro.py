@@ -30,3 +30,8 @@ d = D()
 
 ## Saber la jerarquía de python ejecutando métodos de las clases
 print(D.mro())
+
+
+## Sobre escribir el método del padre llamándolo desde el hijo
+## (se le pasa  la instancia como parámetro al método de la clase que queremos sobre escribir)
+print(C.hablar(d))
