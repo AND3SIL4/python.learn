@@ -1,9 +1,15 @@
 # This repository was created in order to store the basic concepts in Python language
 
-## POO
+## Here is the order of exercises at each level
 
-¿Que es la POO (Programación orientada a objetos)?
+1. Beginner
 
-### **POO !== Programación secuencial**
+- [task tracker](https://roadmap.sh/projects/task-tracker)
 
-- Se centra en la herencia, encapsulación y polimorfismo, que facilitan la reutilización del código, la abstracción y modularidad.
+2. Intermediate
+
+-
+
+3. Advanced
+
+-
