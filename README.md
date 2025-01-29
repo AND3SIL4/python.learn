@@ -4,15 +4,18 @@
 
 ### Best practices
 
-- **configuration file**: pyproject.toml
-- **linter**: ruff
 - **Python packages**: uv
+  ```shell
+  brew install uv
+  ```
+- **Configuration file**: pyproject.toml
+- **Linter**: ruff
 
 ### Technologies
 
 - **Backend**: FastApi
 
-## Here is the order of exercises at each level
+## Here is the order of exercises at each level follow up by roadmap.sh
 
 1. Beginner
 
