@@ -36,9 +36,7 @@
     description = "Add your description here"
     readme = "README.md"
     requires-python = ">=3.13"
-    dependencies = [
-        "fastapi>=0.115.7",
-    ]
+    dependencies = []
 
     [dependency-groups]
     dev = [
@@ -50,12 +48,38 @@
 
     # custom scripts
     [project.scripts]
-    load = "hello:load"
   ```
 
 ### Technologies
 
 - **Backend**: FastApi
+
+  ```sh
+  uv add fastapi --extra standard # for adding the dependencies in pyproject.toml
+  uv run fastapi dev # it should contain the main.py file
+  ```
+
+  ```txt
+  project
+    └── app
+        ├── __init__.py
+        ├── main.py
+        ├── dependencies.py
+        ├── routers
+        │   ├── __init__.py
+        │   ├── items.py
+        │   └── users.py
+        └── internal
+            ├── __init__.py
+            └── admin.py
+  ```
+
+  ```sh
+  # Activate the virtual environment
+  source ./venv/bin/activate
+  # Deactivate the virtual environment
+  deactivate
+  ```
 
 ## Here is the order of exercises at each level follow up by roadmap.sh
 

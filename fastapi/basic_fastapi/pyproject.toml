@@ -2,11 +2,11 @@
 [project]
 name = "basic-fastapi"
 version = "0.1.0"
-description = "Add your description here"
+description = "This is the first project using fastapi"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "fastapi>=0.115.7",
+    "fastapi[standard]>=0.115.7",
 ]
 
 [dependency-groups]
