@@ -1,5 +1,12 @@
-# With optional query params
-@app.get("/optional/{item_id}")
+from typing import Optional
+
+from fastapi import APIRouter
+
+router = APIRouter()
+
+
+# With optional query parameters
+@router.get("/optional/{item_id}")
 async def optional(item_id: str, q: str | None = None):
     if q:
         return {"item_id": item_id, "query": q}
@@ -8,7 +15,7 @@ async def optional(item_id: str, q: str | None = None):
 
 
 # type convert
-@app.get("/convert/{item_id}")
+@router.get("/convert/{item_id}")
 async def convert(item_id: str, q: str | None = None, short: bool = True):
     item = {"item_id": item_id}
     if q:
@@ -21,7 +28,7 @@ async def convert(item_id: str, q: str | None = None, short: bool = True):
 
 
 # No order specific for query parameters
-@app.get("/users/{user_id}/items/{item_id}")
+@router.get("/users/{user_id}/items/{item_id}")
 def noorder(
     user_id: int,
     item_id: int,

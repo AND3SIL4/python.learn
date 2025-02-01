@@ -1,3 +1,12 @@
+from enum import Enum
+
+from fastapi import APIRouter
+
+
+# instance the router
+router = APIRouter()
+
+
 # Example of using a path parameter with Enum
 class ModelName(str, Enum):
     model1 = "model1"
@@ -5,7 +14,7 @@ class ModelName(str, Enum):
     model3 = "model3"
 
 
-@app.get("/models/{model_name}")
+@router.get("/models/{model_name}")
 def model(model_name: ModelName):
     if model_name is ModelName.model1:
         return {
