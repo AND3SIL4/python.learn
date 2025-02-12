@@ -81,6 +81,18 @@
   deactivate
   ```
 
+- **Container**: Docker
+
+  ```sh
+  # go to docker [docker-docs](https://docs.docker.com/engine/install/debian/#install-from-a-package)
+  # run the following command
+  sudo docker run hello-world
+  # add the permissions to execute docker command
+  sudo usermod -aG docker $USER
+  # refresh the users permissions
+  newgrp docker
+  ```
+
 ## Here is the order of exercises at each level follow up by roadmap.sh
 
 1. Beginner
