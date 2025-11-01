@@ -2,7 +2,7 @@
 # decimal a binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
 
 # * Apply TDD approach for solving the challenge
-import pytest
+import pytest  # type: ignore
 from typing import Any
 
 
