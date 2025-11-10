@@ -6,7 +6,7 @@
 #   estén presentes en str1.
 
 # Apply the tdd (test driven design) to solve the problem
-import pytest
+import pytest  # type: ignore
 
 
 # Make assertive test
