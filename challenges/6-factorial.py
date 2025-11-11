@@ -6,7 +6,7 @@ import pytest  # type: ignore
 
 
 # 1. Apply the assertive tests
-@pytest.mark.parametrize("number, expected", [(3, 6), (2, 2), (6, 720), (1, 1)])
+@pytest.mark.parametrize("number, expected", [(3, 6), (2, 2), (6, 720), (1, 1), (0, 1)])
 def test_calculate_factorial(number: int, expected: int) -> None:
     assert calculate_factorial(number=number) == expected, "The value is not expected"
 
@@ -17,6 +17,7 @@ def test_calculate_factorial(number: int, expected: int) -> None:
     [
         ("hola", TypeError, "The type of the input is not valid"),
         (1.3, TypeError, "The type of the input is not valid"),
+        (-1, ValueError, "The input should be a possitive number"),
     ],
 )
 def test_wrong_calculate_factorial(
@@ -31,8 +32,11 @@ def calculate_factorial(number) -> int:
     # 1. Validate if there is a valid number
     if not isinstance(number, int):
         raise TypeError("The type of the input is not valid")
-
-    if number == 1:
+    # 2. Validate if there is a negative number
+    if number < 0:
+        raise ValueError("The input should be a possitive number")
+    # 3. Return the known factorials
+    if number == 0 or number == 1:
         return 1
 
     return number * calculate_factorial(number - 1)
