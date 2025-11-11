@@ -27,4 +27,15 @@ def test_wrong_calculate_factorial(
 
 
 # 3. Consolidate the main logic in order to supply the tests created
-def calculate_factorial(number) -> int: ...
+def calculate_factorial(number) -> int:
+    # 1. Validate if there is a valid number
+    if not isinstance(number, int):
+        raise TypeError("The type of the input is not valid")
+
+    if number == 1:
+        return 1
+
+    return number * calculate_factorial(number - 1)
+
+
+print(calculate_factorial(number=6))
