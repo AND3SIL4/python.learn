@@ -37,4 +37,19 @@ def test_wrong_armstrong_number(
 
 
 # Make the logic for passing the test
-def know_armstrong_number(number) -> bool:...
+def know_armstrong_number(number) -> bool:
+    # 1. Validate if the input type is valid
+    if not isinstance(number, int):
+        raise TypeError(f"The input type is not valid, '{number}'")
+
+    str_number = str(number)
+    digits = len(str_number)  # Calculate the amount of digits to power
+
+    total = 0
+    for n in str_number:
+        total += int(n) ** digits
+
+    return number == total  # Return the validation
+
+
+print(know_armstrong_number(153))
