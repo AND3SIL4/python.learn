@@ -5,7 +5,7 @@
 
 
 # Apply tdd (test driven design) for solving the problem
-import pytest
+import pytest  # type: ignore
 
 
 # Create the assertive tests
