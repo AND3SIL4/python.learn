@@ -57,8 +57,8 @@ def capitalize_string(string) -> str:
     for i, word in enumerate[str](words):
         # Take the first letter of the word
         if not word[0].isupper():
-            words[i] = word[0].upper() + word[1:]
-
+            # Take teh first word and apply the capitalization
+            words[i] = word[0].upper() + word[1:].lower()
     return " ".join(words)
 
 
