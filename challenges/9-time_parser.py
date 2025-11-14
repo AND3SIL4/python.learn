@@ -29,14 +29,10 @@ def test_time_parser(
 @pytest.mark.parametrize(
     "days, hours, minutes, seconds, error_type, expected",
     [
-        ("Hola", 5, 3, 1, TypeError, "The input type is not valid"),
-        (1, "Hola", 4, 5, TypeError, "The input type is not valid"),
-        (1, 2, "Hola", 5, TypeError, "The input type is not valid"),
-        (1, 2, 4, "Hola", TypeError, "The input type is not valid"),
-        (None, 5, 3, 1, ValueError, "Missing argument, you should be 0 insted of None"),
-        (1, None, 4, 5, ValueError, "Missing argument, you should be 0 insted of None"),
-        (1, 2, None, 5, ValueError, "Missing argument, you should be 0 insted of None"),
-        (1, 2, 4, None, ValueError, "Missing argument, you should be 0 insted of None"),
+        ("Hola", 5, 3, 1, TypeError, "The input type 'days' is not valid"),
+        (1, "Hola", 4, 5, TypeError, "The input type 'hours' is not valid"),
+        (1, 2, "Hola", 5, TypeError, "The input type 'minutes' is not valid"),
+        (1, 2, 4, "Hola", TypeError, "The input type 'seconds' is not valid"),
     ],
 )
 def test_time_parser_error_type(
@@ -51,5 +47,44 @@ def test_time_parser_error_type(
         time_parser(days=days, hours=hours, minutes=minutes, seconds=seconds)
 
 
+# Make the negative tests
+@pytest.mark.parametrize(
+    "days, hours, minutes, seconds, error_type, expected",
+    [
+        (None, 5, 3, 1, ValueError, "Missing 'days' should be 0 insted of None"),
+        (1, None, 4, 5, ValueError, "Missing 'hours' should be 0 insted of None"),
+        (1, 2, None, 5, ValueError, "Missing 'minutes' should be 0 insted of None"),
+        (1, 2, 4, None, ValueError, "Missing 'seconds' should be 0 insted of None"),
+    ],
+)
+def test_time_parser_missing_args(
+    days: int,
+    hours: int,
+    minutes: int,
+    seconds: int,
+    error_type: Exception,
+    expected: int,
+) -> None:
+    with pytest.raises(error_type, match=expected):
+        time_parser(days=days, hours=hours, minutes=minutes, seconds=seconds)
+
+
 # Make the main logic
-def time_parser(days, hours, minutes, seconds) -> int: ...
+def time_parser(days, hours, minutes, seconds) -> int:
+    for name, value in locals().items():
+        # 1. Validate if there is a param missing
+        if value is None:
+            raise ValueError(f"Missing '{name}' should be 0 insted of None")
+        # 2. Validate the type of the params
+        if not isinstance(value, int):
+            raise TypeError(f"The input type '{name}' is not valid")
+
+    # Apply the main logic for passing the tests
+    # 2. Convert input time to seconds
+    s_in_days = days * 24 * 3600
+    s_in_hours = hours * 3600
+    s_in_minutes = minutes * 60
+    # Calculate the total seconds
+    total_seconds = s_in_days + s_in_hours + s_in_minutes + seconds
+    # Return the total milli seconds
+    return total_seconds * 1000
