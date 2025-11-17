@@ -10,6 +10,7 @@
 # Using tdd (test driven design) for solving the main problem
 import pytest  # type: ignore
 
+
 # Make the assertive tests
 @pytest.mark.parametrize(
     "arr1, arr2, common, expected",
@@ -35,8 +36,10 @@ def test_know_sets(
 @pytest.mark.parametrize(
     "arr1, arr2, common, error_type, expected",
     [
-        (["hola"], [12], True, TypeError, "The input type is not valid"),
-        ([24], ["hola"], True, TypeError, "The input type is not valid"),
+        (None, [12], True, TypeError, "The input type is not valid"),
+        (["sfasd"], None, True, TypeError, "The input type is not valid"),
+        (["hola"], [12], True, TypeError, "Inputs type does not match"),
+        ([24], ["hola"], True, TypeError, "Inputs type does not match"),
     ],
 )
 def test_error_type(
@@ -51,4 +54,8 @@ def test_error_type(
 
 
 # Make the main logic for passing all tests
-def know_sets(arr1, arr2, common: bool) -> set:...
+def know_sets(arr1, arr2, common: bool) -> set[int | str]:
+    # 1. Make type validations
+    if not isinstance(arr1, (str, int)) or not isinstance(arr2, (str, int)):
+
+
