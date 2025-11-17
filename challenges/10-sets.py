@@ -8,10 +8,7 @@
 
 
 # Using tdd (test driven design) for solving the main problem
-from re import U
 import pytest  # type: ignore
-from typing import Any
-
 
 # Make the assertive tests
 @pytest.mark.parametrize(
