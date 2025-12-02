@@ -6,7 +6,7 @@
 #   automáticamente.
 
 # Utilizar TDD (test driven development) to solve the problem
-import pytest
+import pytest  # type: ignore
 from typing import Literal
 
 
