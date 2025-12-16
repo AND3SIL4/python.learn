@@ -27,7 +27,7 @@ import pytest  # type: ignore
 def test_is_orthogonal_vector(
     vector1: list[int], vector2: list[int], expected: bool
 ) -> None:
-    assert is_orthogonal_vector(vecto1=vector1, vector2=vector2) == expected, (
+    assert is_orthogonal_vector(vector1=vector1, vector2=vector2) == expected, (
         "The expected and return value does not match"
     )
 
@@ -63,6 +63,10 @@ def is_orthogonal_vector(vector1: list[int], vector2: list[int]) -> bool:
     length_allowed = 2
     if len(vector1) != length_allowed or len(vector2) != 2:
         raise ValueError("The length of the vectors are not valid")
+
+    # If the input vectors are valid, make the logic to know if there is an orthogonal vectors
+    product1, product2 = (vector1[0] * vector2[0]), (vector1[1] * vector2[1])
+    return True if product1 + product2 == 0 else False
 
 
 print(is_orthogonal_vector([1, 2], [1, 2]))
