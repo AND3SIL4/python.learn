@@ -46,8 +46,23 @@ def test_error_is_orthogonal_vector(
     vector1: list[int], vector2: list[int], error_type: Exception, expected: str
 ) -> None:
     with pytest.raises(error_type, match=expected):
-        is_orthogonal_vector(vecto1=vector1, vector2=vector2)
+        is_orthogonal_vector(vector1=vector1, vector2=vector2)
 
 
 # Apply the main logic to know if the vectors are orthogonal
-def is_orthogonal_vector(vecto1: list[int], vector2: list[int]) -> None: ...
+def is_orthogonal_vector(vector1: list[int], vector2: list[int]) -> bool:
+    # Validate the type of each vector
+    types1: set[str] = set[str]([type(e) for e in vector1 if not isinstance(e, int)])
+    types2: set[str] = set[str]([type(e) for e in vector2 if not isinstance(e, int)])
+
+    # Return the error in case the types does not match
+    if types1 or types2:
+        raise TypeError("One vector type is not valid")
+
+    # Validate if the length of the vectors are valid
+    length_allowed = 2
+    if len(vector1) != length_allowed or len(vector2) != 2:
+        raise ValueError("The length of the vectors are not valid")
+
+
+print(is_orthogonal_vector([1, 2], [1, 2]))
