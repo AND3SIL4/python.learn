@@ -1,3 +1,0 @@
-# Scikit-Learn course repository
-
-##
