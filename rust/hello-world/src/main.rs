@@ -1,3 +1,7 @@
+mod basics;
+
 fn main() {
-    println!("Hello world!");
+    use basics::variables;
+    // variables::primitive_variables();
+    variables::working_with_strings();
 }
