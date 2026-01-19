@@ -37,4 +37,15 @@ pub fn working_with_strings() {
     // 2. Using the string, from method
     let city: String = String::from("Bogota");
     println!("{}", city);
+
+    // Concatenate strings
+    let hola: String = String::from("Hola");
+    let mundo: String = String::from("Mundo");
+
+    let saludo: String = hola + &mundo;
+    println!("{}", saludo);
+
+    // Concat using macro format
+    let text: String = format!("Saludo={} Ciudad={}", saludo, city);
+    println!("{}", text);
 }
