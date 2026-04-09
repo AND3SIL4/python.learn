@@ -16,12 +16,15 @@ def test_leap_years(year, amount_dates, expected):
     assert leap_years(year, amount_dates) == expected
 
 
-def leap_years(year: int, amount_dates: int):
-    leap_years: list[int] = []
-    while len(leap_years) < amount_dates:
+def get_leap_years(year: int) -> bool:
+    # Return the yield iterator with leap years
+    while True:
         if (year % 4) == 0 and (year % 100 != 0 or year % 400 != 0):
-            leap_years.append(year)
-        # Increment the year to validate
+            yield year
         year += 1
-    # Return the final list of leap years
-    return leap_years
+
+
+def leap_years(year: int, qty_years: int):
+    # Get the iterator leap years to iterate depends on the range
+    gen = get_leap_years(year)
+    return [next(gen) for _ in range(qty_years)]
